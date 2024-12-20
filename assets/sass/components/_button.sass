@@ -4,10 +4,10 @@
         display: flex 
         align-items: center
         column-gap: 10px
-        padding: size-pc(18, rem) size-pc(20, rem)
+        padding: size-pc(15, rem) size-pc(30, rem)
         border: 1px solid 
-        border-radius: 10px
-        font-size: size-pc(22, rem)
+        border-radius: 50px
+        font-size: size-pc(23, rem)
         background-color: $color-btn
         font-family: $font-btn
         color: $color-btn-text
@@ -20,6 +20,11 @@
             background-color: $color-btn-hover
             border-color: $color-btn-hover
             color: $color-btn-text-hover
+            .fa-arrow-right
+              transform: rotate(0deg)
+        .fa-arrow-right
+            transition: transform .3s ease
+            transform: rotate(-45deg)
     &-white 
         border-color: #fff
         background-color: #fff

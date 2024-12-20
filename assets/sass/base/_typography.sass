@@ -7,6 +7,9 @@
         h2 
             margin-left: auto
             margin-right: auto
+        p
+            margin-left: auto
+            margin-right: auto
         .social-list
             justify-content: center
         .button-box
@@ -71,12 +74,15 @@
         font-weight: $font-medium
         font-family: $font-title
         margin-bottom: size-pc(0,rem)
-        font-size: size-pc(80,rem)
+        font-size: size-pc(95,rem)
         position: relative
         @include mobile-md
-            font-size: size-pc(70,rem)
+            font-size: size-pc(85,rem)
         @include mobile-sm
-            font-size: size-pc(65,rem)
+            font-size: size-pc(70,rem)
+    span 
+        color: $color-span 
+        font-style: italic
     h2
         color: $color-title
         font-weight: 100
@@ -94,16 +100,32 @@
     p 
         margin-bottom: size-pc(0,rem)
         font-size: size-pc(23,rem)
+        width: fit-content
         @include mobile-sm
             font-size: size-pc(22,rem)
     h3 
-        font-size: size-pc(24,rem)
+        font-size: size-pc(21,rem)
         font-family: $font-body
         text-transform: uppercase
         font-weight: $font-regular
-        color: $color-sub
+        color: $color-title
+        width: fit-content
+        border-radius: 30px
         letter-spacing: size-pc(5,rem)
         margin-bottom: size-pc(0,rem)
+        background-color: #dfefbf
+        padding: size-pc(15,rem) size-pc(30,rem) size-pc(12,rem)
+        display: flex
+        align-items: center
+        column-gap: size-pc(15,rem)
+        &::before
+            display: block
+            width: 10px
+            height: 10px
+            background: #6A9E46
+            border-radius: 100%
+            content: ''
+            margin-bottom: 2px
         @include mobile-sm
             font-size: size-pc(22,rem)
         &.has-mask-fill

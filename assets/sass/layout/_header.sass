@@ -13,17 +13,23 @@
 .site-header
     padding: 0px 0
     position: absolute
-    width: 100%
+    width: calc(100% - size-pc(60,rem))
+    margin: size-pc(30,rem)
+    border-radius: 15px
     z-index: 100
     transition: all .5s ease
-    background-color: transparent
+    background-color: rgba(#17233C, 0.6)
     top: 0
     left: 0
+    backdrop-filter: blur(10px)
     // @media screen and ( max-width: 991.82px )
     //     box-shadow: 0 0 10px rgba(#000,0.1)
-    --color-link: #623D2A
-    --color-link-hover: $color-2
-    --color-line: #623D2A
+    --color-link: #fff
+    --color-link-hover: #6A9E46
+    --color-line: #6A9E46
+    @media screen and ( max-width: 767.82px )
+        width: calc(100% - size-pc(40,rem))
+        margin: size-pc(20,rem)
     &.header-no-fixed
         position: relative
         background-color: #1a1831
@@ -31,6 +37,77 @@
         display: flex
         align-items: center
         justify-content: space-between
+    .site-header-btn 
+        display: flex
+        column-gap: 10px
+        .btn-site 
+            @media screen and ( max-width: 991.82px )
+                display: none
+                
+        .btn-lang 
+            position: relative
+            border: 1px solid var(--color-line)
+            color: #fff
+            border-radius: 50px
+            padding: size-pc(15, rem) size-pc(30, rem)
+            
+            font-size: size-pc(23, rem)
+            transition: all .3s ease
+            white-space: nowrap
+            &:hover 
+                border-radius: 20px 20px 0 0 
+                background-color: #fff
+                span 
+                    color: #1d283f
+                ul 
+                    opacity: 1
+                    visibility: visible
+            span 
+                font-size: size-pc(23, rem)
+                width: fit-content
+                display: flex 
+                align-items: center
+                column-gap: 10px
+                color: #fff
+                transition: all .3s ease
+                i 
+                    color: #6A9E46
+            ul 
+                opacity: 0
+                visibility: hidden
+                transition: all .3s ease
+                position: absolute
+                top: 100%
+                border-radius: 0 0 20px 20px
+                border: 1px solid var(--color-line)
+                background-color: #fff
+                color: $color-text 
+                width: auto
+                margin-block-end: 0
+                margin-block-start: 0
+                padding-left: 0
+                margin: 0
+                left: -1px
+                right: -1px
+                display: flex
+                flex-direction: column
+                align-items: flex-start
+                justify-content: flex-start
+                overflow: hidden
+                > li 
+                    border: unset
+                    width: 100%
+                    > a 
+                        color: $color-text
+                        border: unset 
+                        width: 100%
+                        height: unset
+                        font-size: size-pc(23, rem)
+                        display: block
+                        text-align: left
+                        padding: size-pc(10, rem) size-pc(30, rem)
+                        &:hover 
+                            color: #6A9E46
     &-logo 
         width: 100%
         height: size-pc(110, rem)
@@ -100,7 +177,7 @@
           
             > li 
                 flex: 1 0 auto
-                margin-right: size-pc(80, rem)
+                margin-right: size-pc(50, rem)
                 text-align: center
                 &.mobile-link 
                     display: none
@@ -255,12 +332,12 @@
                     width: fit-content
                     text-align: center
                     color: var(--color-link)
-                    text-transform: uppercase
+                    // text-transform: uppercase
                     text-align: center
                     margin: auto
                     padding: size-pc(20, rem) size-pc(0, rem)
                     font-weight: 400
-                    font-size: size-pc(24, rem)
+                    font-size: size-pc(23, rem)
                     
                     &:hover 
                         color: var(--color-link-hover)
@@ -277,20 +354,20 @@
         .btn-site 
             margin: 10px 0
             margin-left: 25px
-    &.scroll-menu 
-        box-shadow: 0 0 10px rgba(#000,0.1)
-        background-color: rgba(#fefaee,0.7)
-        backdrop-filter: blur(5px)
-        --color-link: #623D2A
-        --color-link-hover: $color-2
-        --color-line: #623D2A
-        .site-header-logo 
-            .logo-w
-                opacity: 0
-                visibility: hidden
-            .logo-d
-                opacity: 1
-                visibility: visible
+    // &.scroll-menu 
+    //     box-shadow: 0 0 10px rgba(#000,0.1)
+    //     background-color: rgba(#fefaee,0.7)
+    //     backdrop-filter: blur(5px)
+    //     --color-link: #623D2A
+    //     --color-link-hover: $color-2
+    //     --color-line: #623D2A
+    //     .site-header-logo 
+    //         .logo-w
+    //             opacity: 0
+    //             visibility: hidden
+    //         .logo-d
+    //             opacity: 1
+    //             visibility: visible
     &.scroll-down
         transform: translateY(-100%)
     
@@ -310,7 +387,7 @@
                 border-color: $color-2 
     &-ham
         display: none
-        // margin-left: 20px 
+        margin-left: 20px 
         // position: absolute
         // left: 0
         // left: 20px
@@ -328,10 +405,11 @@
             border: 1px solid var(--color-link)
             color: var(--color-link)
             display: block
-            width: size-pc(50,rem)
-            height: size-pc(50,rem)
+            width: size-pc(60,rem)
+            height: size-pc(60,rem)
             text-align: center
-            line-height: size-pc(50,rem)
+            line-height: size-pc(60,rem)
+            border-radius: 16px
             &:hover 
                 background-color: var(--color-link)
                 color: #fff
@@ -366,8 +444,8 @@
         align-items: center
         justify-content: space-between
         // grid-template-columns: 1fr 1fr 1fr
-        padding-top: size-pc(15, rem)
-        padding-bottom: size-pc(15, rem)
+        padding-top: size-pc(25, rem)
+        padding-bottom: size-pc(25, rem)
         @media screen and ( max-width: 991.8px )
             display: flex
             justify-content: space-between
@@ -808,6 +886,8 @@
                 li 
                     padding: 0
                     border-left: unset
+                    .btn-site
+                        margin-top: 15px
                     a 
                         width: 100%
                         padding: 10px 10px
