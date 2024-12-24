@@ -1,0 +1,199 @@
+.contact
+    &-section 
+        @include section-padding
+            
+    &-item
+        &-box
+            flex-direction: column
+            padding: size-pc(30, rem)
+            display: flex
+            position: relative
+            border: 1px solid #6a9e46
+            backdrop-filter: blur(10px)
+            width: 100%
+            row-gap: 15px
+            border-radius: 16px
+            background-color: #f1f1f1
+            ul 
+                li 
+                    font-size: size-pc(24,rem)
+                    margin-bottom: 5px
+                    
+                &:not(.social-list)
+                    i 
+                        color: #6a9e46
+                        width: 20px
+            h2 
+                font-size: size-pc(35,rem)
+                margin-bottom: 0px
+                line-height: 1.2
+                font-weight: 500
+                color: #6a9e46
+            h3 
+                font-size: size-pc(30,rem)
+                margin-bottom: 0px
+                font-family: $font-body
+            p 
+                font-size: size-pc(24,rem)
+                margin-bottom: 0px
+            &.__2 
+                padding: 10px
+                display: flex
+                width: 100%
+                border-radius: 20px
+                overflow: hidden
+                position: relative
+                z-index: 3
+            .map-ct-box
+                position: relative
+                width: 100%
+                display: flex
+                border-radius: 20px
+                overflow: hidden
+                flex: 1
+                @media screen and ( max-width: 991.82px )
+                    padding-bottom: 100%
+                iframe
+                    position: absolute
+                    width: 100%
+                    top: 0
+                    left: 0
+                    height: 100%
+                    object-fit: cover
+            
+            .table-ct
+                
+                table
+                    margin-bottom: 0
+                    width: 100%
+                    tbody 
+                        tr
+                            border-bottom: 1px dashed #C1C1C1FF
+                            &:last-child
+                                border-bottom: unset
+                                
+                            td
+                                font-size: 14px
+                                padding: 10px 0
+                                &:first-child
+                                    font-weight: 500
+                                &:last-child
+                                    text-align: right
+        &-button 
+            display: flex
+            flex-wrap: wrap
+            gap: 8px
+            a:not(.btn-site)
+                box-shadow: 0px 0px 0px 1px rgba(18, 19, 25, 0.12), 0px 2px 4px 0px rgba(18, 19, 25, 0.04)
+                padding: 8px 16px
+                display: flex
+                column-gap: 8px
+                border-radius: 40px
+                background-color: #fff
+                align-items: center
+                width: fit-content
+                font-weight: 500
+
+.form
+    &-section
+        .list-contact
+            width: 100%
+            padding: size-pc(50, rem)
+            position: relative
+            background-size: cover
+            border-radius: 20px
+            // border-radius: 10px 30px 10px 30px
+            overflow: hidden
+            // &::before
+            //     content: ""
+            //     position: absolute
+            //     top: 0
+            //     left: 0
+            //     width: 100%
+            //     height: 100%
+            //     background-color: #00446b
+            //     opacity: .6
+            @media screen and ( max-width: 767.82px )
+                min-height: 350px
+                
+            > * 
+                position: relative
+                z-index: 2
+            h3
+                color: #fff
+                font-family: $font-body
+                font-size: size-pc(32, rem)
+                margin-bottom: 15px
+            li 
+                color: #ffff
+                font-weight: 400
+                font-size: size-pc(28, rem)
+                margin-bottom: 10px
+                display: flex
+                // align-items: center
+                &:last-child
+                    margin-bottom: 0
+                b 
+                    color: #fff
+                i 
+                    flex: 0 0 14px
+                    color: #fff
+                    font-size: 16px
+                    margin-right: 10px
+                    margin-top: 6px
+                a 
+                    color: #fff
+                    &:hover 
+                        color: #fff
+            
+    &-container 
+        &.page-contact
+            padding: size-pc(80, rem)
+            @media screen and ( max-width: 767.82px )
+                padding: size-pc(40, rem)
+            .content 
+                margin-bottom: size-pc(80, rem)
+                @media screen and ( max-width: 767.82px )
+                    margin-bottom: size-pc(60, rem)
+            .form-wrapper
+                padding: 0 0 0 size-pc(50, rem)
+                @media screen and ( max-width: 767.82px )
+                    padding: 0
+
+            input 
+                border-radius: 50px
+                border: 1px solid #6A9E46
+                width: 100%
+                background-color: unset
+                padding: size-pc(15, rem) size-pc(30, rem)
+                font-size: size-pc(23, rem)
+                
+                    
+                &:focus
+                    outline: unset
+                    box-shadow: unset
+                    border-color: #a2ce4d
+            .btn-site 
+                width: fit-content
+            select
+                border-radius: 50px
+                border: 1px solid #6A9E46
+                width: 100%
+                background-color: unset
+                padding: size-pc(15, rem) size-pc(30, rem)
+                font-size: size-pc(23, rem)
+                &:focus
+                    outline: unset
+                    box-shadow: unset
+                    border-color: #a2ce4d
+            textarea 
+                border-radius: 22px
+                border: 1px solid #6A9E46
+                width: 100%
+                background-color: unset
+                padding: size-pc(15, rem) size-pc(30, rem)
+                font-size: size-pc(23, rem)
+                &:focus
+                    outline: unset
+                    box-shadow: unset
+                    border-color: #a2ce4d

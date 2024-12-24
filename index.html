@@ -54,20 +54,20 @@
                                 <div class="site-header-menu">
                                     <div class="site-header-link">
                                         <ul>
-                                            <li><a href="#">Home</a></li>
-                                            <li><a href="#">About</a></li>
-                                            <li><a href="#">Services</a></li>
-                                            <li><a href="#">Invisalign</a></li>
-                                            <li><a href="#">Sleep Appliances</a></li>
-                                            <li><a href="#">For Patients</a></li>
-                                            <li><a href="#">Our Locations</a></li>
-                                            <li class="mobile-link"><a href="#" class="btn-site">Contact Us <i class="fal fa-arrow-right"></i></a></li>
+                                            <li class="active"><a href="index.html">Home</a></li>
+                                            <li><a href="about-us.html">About</a></li>
+                                            <li><a href="service.html">Services</a></li>
+                                            <li><a href="patient-resource.html">Patient Resources</a></li>
+                                            <li><a href="team.html">Team</a></li>
+                                            <li><a href="location.html">Locations</a></li>
+                                            <li><a href="testimonial.html">Testimonials</a></li>
+                                            <li class="mobile-link"><a href="contact.html" class="btn-site">Contact Us <i class="fal fa-arrow-right"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="logo-header-menu">
                                     <div class="site-header-btn">
-                                        <a href="#" class="btn-site">Contact Us <i class="fal fa-arrow-right"></i></a>
+                                        <a href="contact.html" class="btn-site">Contact Us <i class="fal fa-arrow-right"></i></a>
                                         <div class="btn-lang">
                                             <span>Eng <i class="far fa-angle-down"></i></span>
                                             <ul>
@@ -112,8 +112,23 @@
                                         <div class="col-md-6">
                                             <div class="home-banner-img">
                                                 <div class="thumb-img">
-                                                    <img class="anim-fadein" src="assets/images/home/1.png" alt="">
+                                                    <svg width="683" height="411" viewBox="0 0 683 411" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <mask id="svgmask1">
+                                                            <path id="blob-path" d="M73.6113 64.6644C21.6578 135.073 -9.65008 220.108 4.1203 322.353C17.8464 424.448 264.991 422.044 407.134 394.518C438.406 388.463 673.643 342.894 682.059 231.133C688.276 148.568 566.692 83.5559 534.513 66.3249C421.576 5.92098 154.604 -45.0603 73.6369 64.6907L73.6113 64.6644Z" fill="#FFFFFFFF"/>
+                                                        </mask>
+                                                        <image class="image-svg" xlink:href="assets/images/home/banner/bn.jpg" mask="url(#svgmask1)" />
+                                                    </svg>
+                                                    <div class="el-1">
+                                                        <img src="assets/images/home/banner/el-1.svg" alt="">
+                                                    </div>
+                                                    <div class="el-2">
+                                                        <img src="assets/images/home/banner/el-2.svg" alt="">
+                                                    </div>
                                                 </div>
+                                                    
+                                                <!-- <div class="thumb-img">
+                                                    <img class="anim-fadein" src="assets/images/home/1.png" alt="">
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -615,7 +630,9 @@
                                         <div class="col-12">
                                             <div class="form-container anim-fadeinup">
                                                 <div class="form-img">
-                                                    <img src="assets/images/home/9.jpg" alt="">
+                                                    <figure class="has-parallax" data-delay="100">
+                                                        <img src="assets/images/home/9.jpg" alt="">
+                                                    </figure>
                                                 </div>
                                                 <div class="form-box">
                                                     <div class="row gy-4">
@@ -782,6 +799,30 @@
         <script src="assets/js/easings.js"></script>
         <script src="assets/js/wow.min.js"></script>
         <script src="assets/js/main.js"></script>
-        <script> </script>
+        <script> 
+            // Select the blob path
+            const blobPath = document.getElementById("blob-path");
+
+            // Define the shapes for morphing
+            const blobShapes = [
+                "M73.6113 64.6644C21.6578 135.073 -9.65008 220.108 4.1203 322.353C17.8464 424.448 264.991 422.044 407.134 394.518C438.406 388.463 673.643 342.894 682.059 231.133C688.276 148.568 566.692 83.5559 534.513 66.3249C421.576 5.92098 154.604 -45.0603 73.6369 64.6907L73.6113 64.6644Z",
+                "M73.6113 64.6644C21.6578 135.073-9.6501 220.108 109 317 157 355 243 407 337 412 438 415 578 382 621 276 666 140 566.692 83.5559 534.513 66.3249 421.576 5.921 154.604-45.0603 73.6369 64.6907Z"
+            ];
+
+            // Create a timeline for the animation
+            gsap.timeline({ repeat: -1, yoyo: true }) // Infinite loop with yoyo effect
+            .to(blobPath, {
+                duration: 4,
+                attr: { d: blobShapes[1] },
+                ease: "power1.inOut"
+            })
+            .to(blobPath, {
+                duration: 4,
+                attr: { d: blobShapes[0] },
+                ease: "power1.inOut"
+            });
+
+
+        </script>
     </body>
 </html>

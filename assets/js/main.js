@@ -337,13 +337,39 @@ window.ScrollEffects = function() {
     hasParallax.forEach(function(hParallax) {
         var bgImage = hParallax.querySelector("img");
         var bgVideo = hParallax.querySelector("video");
-        var parallax = gsap.fromTo( [bgImage, bgVideo], {y: '-20%', scale:1.15}, {y: '20%', scale:1, duration: 1, ease:Linear.easeNone});		
+        var parallax = gsap.fromTo( [bgImage, bgVideo], {y: '-20%', scale:1.1}, {y: '20%', scale:1, duration: 1, ease:Linear.easeNone});		
         var parallaxScene = ScrollTrigger.create({
             trigger: hParallax,
             start: "top 100%",
             end: () => `+=${hParallax.offsetHeight + window.innerHeight}`,
             animation: parallax,
             scrub: true
+        });
+    });
+
+    var hasParallaxHover = gsap.utils.toArray('.has-parallax-hover');
+    // Loop through each element
+    hasParallaxHover.forEach(item => {
+        // Add mouseenter event for hover-in effect
+        item.addEventListener('mouseenter', () => {
+            gsap.to(item, {
+                y: -10, // Move slightly up
+                x: 10, // Move slightly right
+                scale: 1.1, // Slight zoom-in
+                duration: 0.5, // Animation duration
+                ease: 'power3.out' // Easing
+            });
+        });
+
+        // Add mouseleave event for hover-out effect
+        item.addEventListener('mouseleave', () => {
+            gsap.to(item, {
+                y: 0, // Reset position
+                x: 0,
+                scale: 1, // Reset scale
+                duration: 0.5,
+                ease: 'power3.out'
+            });
         });
     });
 
@@ -1049,6 +1075,122 @@ var $ttSpSliderThumbsSwiper = new Swiper($(".single-product-slider-thumbs").find
     },
 });
 
+if ($(".team-page-slide-section").length) {
+    $(".team-page-slide-section").each(function() {
+        
+        var swiperTeam = new Swiper($(this).find('.swiper')[0], {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            slidesPerGroup: 1,
+            speed: 1500,
+            
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            loop: true,
+        
+            breakpoints: {
+                992: {
+                    slidesPerView: 4,
+                    
+                    spaceBetween: 30,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                    
+                },
+                600: {
+                    slidesPerView: 2,
+                    
+                    spaceBetween: 20,
+                },
+                400: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                },
+        
+            },
+            
+        
+            // pagination: {
+            //     el: $(this).find('.team-pagination')[0],
+            //     clickable: true,
+            //     dynamicBullets: true,
+            //     dynamicMainBullets: 2
+            // },
+        
+            // navigation: {
+            //     nextEl: $(this).find('.team-nav-next')[0],
+            //     prevEl: $(this).find('.team-nav-prev')[0]
+            // },
+            
+        })
+    })
+}
+
+$('#modal-team').on('show.bs.modal', function (e) {
+    // swiperTeam.update();
+    var teamname = $(e.relatedTarget).find('.team-page-content > h2').html(),
+        teambio = $(e.relatedTarget).find('.team-page-content > h3').html(),
+        teammail = $(e.relatedTarget).find('.team-page-content .email-hide').html(),
+        teamcontent = $(e.relatedTarget).find('.team-page-content .content-hide').html(),
+        teamimg = $(e.relatedTarget).find('.team-page-img img').attr('src');
+    $(".team-modal-name").html( teamname );
+    $(".team-modal-bio").html( teambio );
+    $(".team-modal-mail").html( teammail );
+    $(".team-modal-mail").attr( 'href' , 'mailto:' + teammail );
+    $(".team-modal-content-p").html( teamcontent );
+    $(".team-modal-img").attr( 'src' , teamimg );
+})
+
+if ($('.blog-related-slide').length) {
+    $(".blog-related-slide").each(function() {
+        var $blogSlide = $(this);
+       
+  
+        var $tsSlide = new Swiper($blogSlide.find('.swiper')[0], {
+          speed: 1500,
+          
+          // effect: 'fade',
+          spaceBetween: 20,
+  
+        
+        
+          // autoplay: {
+          //   delay: 8000,
+          //   disableOnInteraction: false,
+          // },
+          slidesPerView: 1,
+          
+          pagination: {
+            el: $blogSlide.find('.swiper-pagination')[0],
+            clickable: true,
+          },
+          breakpoints: {
+            1500: {
+              slidesPerView: 4,
+              spaceBetween: 40,
+            },
+            992: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            576: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            }
+          }
+          
+        })
+      
+    })    
+}
 
 // Init Swiper (image slider)
 // =============
