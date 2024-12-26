@@ -4364,20 +4364,20 @@ br {
   color: #6a9e46;
 }
 #modal-team .team-modal-content h3 {
-  font-size: 1.0416666667rem;
+  font-size: 1.25rem;
   color: #193E52;
 }
 #modal-team .team-modal-content a {
   display: block;
   margin-bottom: 20px;
-  font-size: 0.9166666667rem;
+  font-size: 1.0833333333rem;
   color: #193E52;
 }
 #modal-team .team-modal-content a:hover {
   color: #6a9e46;
 }
 #modal-team .team-modal-content p {
-  font-size: 0.8333333333rem;
+  font-size: 1rem;
   color: #193E52;
   margin-bottom: 0;
 }
